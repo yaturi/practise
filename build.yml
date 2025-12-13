@@ -1,0 +1,13 @@
+name: workflows
+
+on:
+  push
+
+
+
+jobs:
+  practise
+   runs-on: ubuntu-latest
+   steps:
+     - name: install terraform
+       uses: actions/terraform@v1  
