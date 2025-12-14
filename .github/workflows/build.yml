@@ -16,7 +16,7 @@ jobs:
       max-parallel: 1
     runs-on: ${{ matrix.os }}
     steps:
-      - name: check docker version
+      - name: check docker versions
         run: |
           docker --version
       - name: pull docker image
