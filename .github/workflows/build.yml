@@ -1,7 +1,7 @@
 name: workflows
 
 on:
-  push:
+  pull_request:
     branches:
       - main  # Adjust as needed
 
@@ -15,7 +15,7 @@ jobs:
       max-parallel: 1
     runs-on: ${{ matrix.os }}
     steps:
-      - name: greeting
+      - name: check docker version
         run: |
           docker --version
       - name: pull docker image
