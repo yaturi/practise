@@ -6,10 +6,12 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest]
+        image: [alpine, ubuntu, centos]
     runs-on: ${{ matrix.os }}
     steps:
       - name: greeting
-        uses: actions/checkout@v5
+        run: |
+          docker pull ${{ matrix.image }}:latest
   
   second_job:
     runs-on: ubuntu-latest
@@ -43,7 +45,4 @@ jobs:
     steps:
       - name: install dcoker on macos
         run: |
-          brew install --cask docker
-      - name: downlaod-docker-images
-        run: |
-          docker pull alpine:latest            
+          brew install --cask docker           
