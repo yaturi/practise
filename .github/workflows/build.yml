@@ -3,7 +3,10 @@ on: push
 
 jobs:
   first_job:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
     steps:
       - name: greeting
         uses: actions/checkout@v5
@@ -38,6 +41,9 @@ jobs:
     runs-on: macos-latest
     needs: fourth_job
     steps:
+      - name: install dcoker on macos
+        run: |
+          brew install --cask docker
       - name: downlaod-docker-images
         run: |
           docker pull alpine:latest            
