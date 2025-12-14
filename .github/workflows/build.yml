@@ -6,7 +6,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest]
-        image: [alpine, ubuntu, centos]
+        image: [alpine, ubuntu]
     runs-on: ${{ matrix.os }}
     steps:
       - name: greeting
