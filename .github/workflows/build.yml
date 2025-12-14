@@ -10,12 +10,11 @@ jobs:
   
   second_job:
     runs-on: ubuntu-latest
-    needs: first_job
     steps:
-      - name: Install Docker
+      - name: Install java
         run: |
           sudo apt-get update
-          sudo apt-get install -y docker
+          sudo apt-get install java-11-openjdk -y
 
   fourth_job:
     runs-on: ubuntu-latest
@@ -25,7 +24,7 @@ jobs:
         run: |
           docker pull alpine:latest
       - name: upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v6.0.0
         with:
           name: alpine-image     
 
