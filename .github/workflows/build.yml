@@ -7,7 +7,8 @@ jobs:
       matrix:
         os: [ubuntu-latest, macos-latest]
         image: [alpine, ubuntu]
-        fail-fast: false
+      fail-fast: false
+      max-parallel: 2
     runs-on: ${{ matrix.os }}
     steps:
       - name: greeting
