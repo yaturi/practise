@@ -1,13 +1,9 @@
-name: workflows
-
-on:
-  push
-
-
+name: worflows
+on: push
 
 jobs:
-  practise
+  first_job:
     runs-on: ubuntu-latest
     steps:
-     - name: install terraform
-       uses: actions/terraform@v1  
+      - name: greeting
+        uses: actions/checkout@v5
