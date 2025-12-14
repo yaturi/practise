@@ -19,7 +19,7 @@ jobs:
 
   fourth_job:
     runs-on: ubuntu-latest
-    needs: second_job
+    needs: third_job
     steps:
       - name: build Docker image
         run: |
