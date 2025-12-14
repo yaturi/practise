@@ -1,63 +1,13 @@
-name: deploy
-run-name: Deploy to Production
+name: workflows
 
 on:
-    push:
-        branches:
-            - main
-            - deploy
-    pull_request:
-        branches:
-            - main
-        types: [opened, synchronize, reopened, closed]     
-    
-        
- workflow_dispatch:
-    inputs:
-        environment:
-            description: 'Select the environment to deploy to'
-            required: true
-            default: 'production'
-            type: choice
-            options:
-                - production
-                - staging
-                
-env:
-    PROJECT_NAME: my_project
-    DEPLOY_USER: deployer
-    DEPLOY_HOST: example.com
-    DEPLOY_PATH: /var/www/my_project
-    
-jobs;
-   - name: terrafrom
-   runs-on: ubuntu-latest
-   permissions:
-    contents: read
-    id: write
-   steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-      
-    - name: seup terrafrom
-      uses: hashocorp/setup-terraform@v1
-      with:
-        version: 1.5.6 
-
-    - name: authenticate aws
-      uses: aws-actions/onfigure -aws-credentials@v1
-      with:
-        iam-role: ${{ secrets.AWS_ROLE_ARN }} 
-        
-    - name: get aws secrets
-      uses: aws-actions/aws-secretsmanager-get-secrets@v1    
-      with:
-        secret-ids
+  push
 
 
 
-
-
-
-   - name: terraform init
-     run: terraform init -backend-config="vars/backend.dev.tfvars" 
+jobs:
+  practise
+    runs-on: ubuntu-latest
+    steps:
+     - name: install terraform
+       uses: actions/terraform@v1  
